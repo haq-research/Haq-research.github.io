@@ -9,7 +9,7 @@ permalink: /tags/
   <p class="page-description">Browse content by topic.</p>
 </header>
 
-{% assign all_tags = site.posts | map: "tags" | concat: site.research | map: "tags" | flatten | uniq | sort %}
+{% assign all_tags = site.posts | map: "tags" | concat: site.research | map: "tags" | flatten | compact | uniq | sort %}
 
 <div class="tags-cloud">
 {% for tag in all_tags %}
