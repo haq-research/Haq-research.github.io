@@ -1,34 +1,44 @@
----
----
-/* Custom Doto Font Override */
+/* Doto Font for HAQ Research */
 @import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
 
 /* Headings */
-h1, h2, h3, h4, h5, h6,
-.page__title,
-.archive__item-title,
-.site-title {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Doto', sans-serif !important;
   letter-spacing: 1.5px;
 }
 
-/* Navigation */
-.greedy-nav a,
-.greedy-nav .visible-links a {
+/* Site title */
+.logo a {
   font-family: 'Doto', sans-serif !important;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* Author name */
-.author__name {
+/* Navigation */
+#menu a {
+  font-family: 'Doto', sans-serif !important;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* Post titles */
+.post-title,
+.entry-title {
   font-family: 'Doto', sans-serif !important;
   letter-spacing: 1px;
 }
 
 /* Tags */
-.page__taxonomy-item {
+.post-tags a,
+.terms-tags a {
   font-family: 'Doto', sans-serif !important;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+/* Footer */
+.footer {
+  font-family: 'Doto', sans-serif !important;
+  letter-spacing: 1px;
 }

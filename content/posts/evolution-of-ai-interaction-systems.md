@@ -1,10 +1,13 @@
 ---
-layout: single
 title: "The Evolution of AI Interaction Systems"
 date: 2026-03-07
-categories: blog
-tags: [ai-systems, llm-architecture, system-design]
+tags: ["AI Systems", "LLM Architecture", "System Design"]
+summary: "We're witnessing a shift from stateless prompt-response systems toward context-aware collaborative intelligence."
 ---
+
+Over the past few months, I've been actively using large language models like ChatGPT and Claude for research, architecture exploration, and system design thinking.
+
+What's interesting isn't just the improvement in model capabilities — it's the **evolution of the interaction architecture around these models**.
 
 We're witnessing a shift from **stateless prompt-response systems** toward **context-aware collaborative intelligence systems**.
 
@@ -25,8 +28,6 @@ Key characteristics include:
 - Notifications and resumable workflows
 - State separation between tasks
 
-This design strongly resembles **distributed system architectures**.
-
 ## Clarification Before Computation
 
 Instead of generating output immediately when requirements are unclear, the system **asks clarifying questions first**.
@@ -38,7 +39,5 @@ In systems thinking terms: **Better input constraints → Lower entropy output**
 ## The Bigger Pattern
 
 We are transitioning from **single-query intelligence** to **iterative, stateful, adaptive systems**.
-
-The real unlock may not simply be larger models. Instead, it may come from **better system design around these models**.
 
 We're no longer just building chatbots. We're designing **cognitive infrastructure**.

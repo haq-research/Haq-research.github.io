@@ -1,39 +1,81 @@
 # HAQ RESEARCH
 
-Personal AI research site using [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) theme.
+Hugo site with PaperMod theme + Doto font.
 
-## Deploy
+## Deploy to GitHub Pages
 
-1. **Delete everything in your repo** and push these files
-2. Settings → Pages → Source: **Deploy from a branch** → **main** → Save
-3. Wait 1-2 minutes for build
+1. **Create repo** named `your-username.github.io`
+2. **Push this code:**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+   git add .
+   git commit -m "Add PaperMod theme"
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_USERNAME.github.io.git
+   git push -u origin main
+   ```
+3. **Settings → Pages → Source: GitHub Actions**
+4. Site builds automatically
 
-## What You Manage
+## Structure
 
 ```
-_config.yml        ← Site settings
-_pages/about.md    ← About page (markdown)
-_posts/            ← Blog posts (markdown)
-index.md           ← Homepage
+hugo.yaml              ← Site config
+content/
+  about.md             ← About page
+  posts/               ← Blog posts (markdown)
+  research/            ← Research posts (markdown)
+static/css/custom.css  ← Doto font (don't edit)
+layouts/partials/      ← Theme override for custom CSS
 ```
 
-## Adding a Blog Post
+## Adding Content
 
-Create `_posts/YYYY-MM-DD-title.md`:
+### New Blog Post
+
+Create `content/posts/your-title.md`:
 
 ```markdown
 ---
-layout: single
 title: "Your Title"
 date: 2026-03-15
-categories: blog
-tags: [ai, rag]
+tags: ["AI", "RAG"]
+summary: "Short description"
 ---
 
 Your markdown content...
 ```
 
-## Theme
+### New Research Post
 
-- **Dark mode** enabled
-- **Doto font** for headings (via `assets/css/main.scss`)
+Create `content/research/paper-name.md`:
+
+```markdown
+---
+title: "Paper Review Title"
+date: 2026-03-15
+tags: ["Transformers", "Paper Review"]
+summary: "Short description"
+---
+
+**Paper:** Author et al., 2024 — [arXiv](https://arxiv.org/abs/...)
+
+---
+
+Your analysis...
+```
+
+## Local Development
+
+```bash
+hugo server -D
+```
+
+## Features
+
+- ✅ Dark theme default
+- ✅ Doto font on headings/nav
+- ✅ PaperMod theme (same as Lil'Log)
+- ✅ Pure markdown content

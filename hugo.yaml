@@ -1,0 +1,67 @@
+baseURL: "https://haq-research.github.io/"
+languageCode: "en-us"
+title: "HAQ RESEARCH"
+theme: "PaperMod"
+
+# Default to dark mode
+params:
+  defaultTheme: dark
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowToc: false
+  
+  # Home page
+  homeInfoParams:
+    Title: "👋 Welcome to Haq Research"
+    Content: >
+      AI Systems, Architecture & Research Notes by **Abdul Haq**
+      
+      
+      I design enterprise-scale AI and Generative AI platforms. 
+      My focus is on LLM systems, RAG architectures, and production-grade AI infrastructure.
+
+  # Social icons
+  socialIcons:
+    - name: github
+      url: "https://github.com/haq-research"
+    - name: linkedin
+      url: "https://linkedin.com/in/mohammadhaq01"
+
+  # Custom CSS
+  customCSS:
+    - css/custom.css
+
+# Menu
+menu:
+  main:
+    - name: Blogs
+      url: /posts/
+      weight: 1
+    - name: Research
+      url: /research/
+      weight: 2
+    - name: Tags
+      url: /tags/
+      weight: 3
+    - name: About
+      url: /about/
+      weight: 4
+
+# Taxonomies
+taxonomies:
+  tag: tags
+
+# Outputs
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# Permalinks
+permalinks:
+  posts: "/blogs/:title/"
+  research: "/research/:title/"
