@@ -2,45 +2,41 @@
 layout: post
 title: "The Evolution of AI Interaction Systems"
 date: 2026-03-07
-categories: ai-systems
+tags: [AI Systems, LLM Architecture, System Design]
 ---
 
-## Introduction
+Over the past few months, I've been actively using large language models like ChatGPT and Claude for research, architecture exploration, and system design thinking.
 
-Over the past few months, I’ve been actively using large language models like ChatGPT and Claude for research, architecture exploration, and system design thinking.
+What's interesting isn't just the improvement in model capabilities.
 
-What’s interesting isn’t just the improvement in model capabilities.
+It's the **evolution of the interaction architecture around these models**.
 
-It’s the **evolution of the interaction architecture around these models**.
-
-We’re witnessing a shift from **stateless prompt-response systems** toward **context-aware collaborative intelligence systems**.
-
----
+We're witnessing a shift from **stateless prompt-response systems** toward **context-aware collaborative intelligence systems**.
 
 ## Asynchronous, Thread-Isolated Execution
 
 Earlier LLM interactions followed a simple blocking pattern:
 
+```
 Prompt → Wait → Response
+```
 
 Modern AI interfaces are evolving into **threaded interaction environments** where conversations behave like independent execution contexts.
 
 Key characteristics include:
 
-- Independent conversation threads  
-- Background processing  
-- Notifications and resumable workflows  
-- State separation between tasks  
+- Independent conversation threads
+- Background processing
+- Notifications and resumable workflows
+- State separation between tasks
 
 This design strongly resembles **distributed system architectures**:
 
-- Independent processes  
-- State isolation  
-- Resumable workflows  
+- Independent processes
+- State isolation
+- Resumable workflows
 
 In effect, the interface is evolving from a **chatbot** into a **task execution environment**.
-
----
 
 ## Clarification Before Computation
 
@@ -52,7 +48,7 @@ Example:
 
 User request:
 
-"Create a database."
+> "Create a database."
 
 A naive system might generate SQL immediately.
 
@@ -69,8 +65,6 @@ In systems thinking terms:
 
 **Better input constraints → Lower entropy output**
 
----
-
 ## Built-in Feedback Loops
 
 Modern AI interfaces are increasingly embedding **micro-feedback mechanisms**.
@@ -83,11 +77,11 @@ For example, ChatGPT provides:
 
 This creates a **continuous feedback loop**:
 
+```
 User → Model → Feedback → Model Adaptation → Refined Output
+```
 
 From a systems perspective, this transforms static inference into **human-in-the-loop optimization**.
-
----
 
 ## Personalized Reasoning Styles
 
@@ -108,8 +102,6 @@ This moves beyond **personalized content** toward something deeper:
 
 This represents a major shift in AI system design.
 
----
-
 ## Context-Aware Task Continuation
 
 Another emerging capability is **cross-thread contextual awareness**.
@@ -121,8 +113,6 @@ Example scenario:
 3. The system remembers your preference for **eventual consistency over strict ACID models**.
 
 This begins to resemble **long-running distributed processes with evolving internal state**.
-
----
 
 ## The Bigger Pattern
 
@@ -138,6 +128,6 @@ The real unlock may not simply be **larger models**.
 
 Instead, it may come from **better system design around these models**.
 
-We’re no longer just building chatbots.
+We're no longer just building chatbots.
 
-We’re designing **cognitive infrastructure**.
+We're designing **cognitive infrastructure**.
