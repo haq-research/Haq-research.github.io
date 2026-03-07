@@ -1,11 +1,7 @@
-
 ---
 layout: page
-title: Research Notes
+title: Research
 permalink: /research/
 ---
 
-# Research Notes
-
-Short explorations of ideas in AI systems, LLM architecture,
-and distributed machine learning.
+Architecture whitepapers and technical research.
