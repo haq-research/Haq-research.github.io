@@ -1,4 +1,4 @@
 ---
 layout: home
-title: Haq Research
+title: Home
 ---

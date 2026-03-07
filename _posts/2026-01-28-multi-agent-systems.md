@@ -5,65 +5,30 @@ date: 2026-01-28
 tags: [Agentic AI, Multi-Agent Systems, Architecture]
 ---
 
-As AI systems grow more capable, we're moving beyond single-model architectures toward orchestrated multi-agent systems. This shift introduces new architectural patterns and challenges.
+As AI systems grow more capable, we're moving beyond single-model architectures toward orchestrated multi-agent systems.
 
 ## Why Multi-Agent?
 
 Single agents hit limitations when tasks require:
 
-- **Specialization**: Different subtasks benefit from specialized models or prompts
+- **Specialization**: Different subtasks benefit from specialized models
 - **Parallelization**: Independent subtasks can execute concurrently
-- **Modularity**: Easier to update, test, and maintain individual components
+- **Modularity**: Easier to update and maintain individual components
 - **Scalability**: Distribute load across multiple agents
 
 ## Coordination Patterns
 
 ### Hierarchical Orchestration
 
-A supervisor agent decomposes tasks and delegates to specialized workers:
-
-```
-Supervisor → [Research Agent, Code Agent, Review Agent]
-```
-
-The supervisor maintains global state and coordinates handoffs.
+A supervisor agent decomposes tasks and delegates to specialized workers.
 
 ### Peer-to-Peer Collaboration
 
-Agents communicate directly, negotiating task ownership:
-
-```
-Agent A ↔ Agent B ↔ Agent C
-```
-
-More flexible but harder to debug and control.
+Agents communicate directly, negotiating task ownership.
 
 ### Pipeline Architecture
 
-Sequential processing through specialized stages:
-
-```
-Input → Parse → Analyze → Generate → Validate → Output
-```
-
-Simple to reason about but introduces latency.
-
-## State Management
-
-Multi-agent systems require careful state management:
-
-- **Shared Memory**: Agents read/write to common state store
-- **Message Passing**: Agents communicate through explicit messages
-- **Event Sourcing**: All state changes logged as events for replay
-
-## Failure Handling
-
-Distributed systems fail. Plan for:
-
-- Agent timeouts and retries
-- Partial completion rollback
-- Graceful degradation when agents are unavailable
-- Idempotent operations where possible
+Sequential processing through specialized stages.
 
 ## Practical Recommendations
 

@@ -15,7 +15,7 @@ My work focuses on building **production-grade AI systems** that combine:
 - Agentic AI and multi-agent workflows
 - Scalable data and ML infrastructure
 
-I am particularly interested in **context and memory management for enterprise AI systems**, including long-term and short-term memory architectures that allow LLM applications to maintain context across complex workflows and long-running conversations.
+I am particularly interested in **context and memory management for enterprise AI systems**, including long-term and short-term memory architectures that allow LLM applications to maintain context across complex workflows.
 
 ## Areas of Focus
 
@@ -28,12 +28,10 @@ I am particularly interested in **context and memory management for enterprise A
 
 ## This Site
 
-This site contains:
-
-- **Blogs** — Long-form articles and short posts on AI systems architecture, LLM platforms, and engineering insights
-- **Research** — Reviews and technical insights on influential AI research papers
+- **Blogs** — Articles and posts on AI systems architecture
+- **Research** — Reviews of influential AI research papers
 
 ## Connect
 
-- [LinkedIn](https://www.linkedin.com/in/mohammadhaq01/)
+- [LinkedIn](https://linkedin.com/in/mohammadhaq01)
 - [GitHub](https://github.com/haq-research)

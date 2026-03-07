@@ -1,166 +1,77 @@
-# Haq Research
+# HAQ RESEARCH
 
-Personal AI research blog covering AI systems architecture, LLM platforms, and scalable AI infrastructure.
+Personal AI research blog with dark theme default and Doto (dot-matrix) font styling.
 
-**Live site:** [https://haq-research.github.io](https://haq-research.github.io)
-
----
-
-## 🚀 Quick Start: Deploy to GitHub Pages
-
-### Step 1: Create GitHub Repository
-
-1. Go to [github.com/new](https://github.com/new)
-2. Name it: `haq-research.github.io`
-3. Make it **Public**
-4. Don't initialize with README
-
-### Step 2: Push This Code
+## Quick Deploy to GitHub Pages
 
 ```bash
-cd haq-research-site
+# 1. Create repo named: your-username.github.io
 
+# 2. Push this code
 git init
 git add .
 git commit -m "Initial commit"
-
-git remote add origin https://github.com/YOUR_USERNAME/haq-research.github.io.git
-git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_USERNAME.github.io.git
 git push -u origin main
+
+# 3. Enable GitHub Pages: Settings → Pages → Source: main branch
 ```
 
-### Step 3: Enable GitHub Pages
+Site will be live at `https://YOUR_USERNAME.github.io`
 
-1. Repository → **Settings** → **Pages**
-2. Source: **Deploy from a branch**
-3. Branch: `main` / `/ (root)`
-4. Click **Save**
-
-Your site will be live at `https://YOUR_USERNAME.github.io` in ~2 minutes!
-
----
-
-## 📁 Project Structure
+## Structure
 
 ```
-haq-research-site/
-├── _config.yml              # Site configuration
-├── _layouts/
-│   ├── default.html         # Base layout
-│   ├── home.html            # Homepage
-│   ├── post.html            # Blog post layout
-│   ├── research.html        # Research post layout
-│   └── page.html            # Static pages
-├── _posts/                  # Blog posts
-│   └── 2026-03-07-example.md
-├── _research/               # Research posts
-│   └── 2026-02-28-example.md
-├── assets/css/
-│   └── style.css            # All styles
-├── index.md                 # Homepage
-├── blogs.md                 # Blogs listing
-├── research.md              # Research listing
-├── tags.md                  # Tags page
-├── about.md                 # About page
-└── README.md
+├── _config.yml        # Site settings
+├── _layouts/          # Templates
+├── _posts/            # Blog posts (markdown)
+├── _research/         # Research posts (markdown)
+├── assets/css/        # Styling (Doto font + dark theme)
+├── index.md           # Homepage
+├── blogs.md           # Blogs listing
+├── research.md        # Research listing
+├── tags.md            # Tags page
+└── about.md           # About page
 ```
 
----
-
-## ✍️ Adding Content
+## Adding Content
 
 ### New Blog Post
-
 Create `_posts/YYYY-MM-DD-title.md`:
-
-```markdown
+```yaml
 ---
 layout: post
-title: "Your Blog Title"
+title: "Your Title"
 date: 2026-03-15
 tags: [AI, Architecture]
 ---
-
-Your content here...
+Your content...
 ```
 
 ### New Research Post
-
 Create `_research/YYYY-MM-DD-title.md`:
-
-```markdown
+```yaml
 ---
 layout: research
 title: "Paper Review Title"
 date: 2026-03-15
-tags: [Transformers, Architecture]
+tags: [Transformers]
 research_type: "Paper Review"
 paper_title: "Original Paper Title"
 paper_authors: "Author et al., 2024"
 paper_url: "https://arxiv.org/abs/..."
 ---
-
-Your analysis here...
+Your analysis...
 ```
 
-**Research types:** Paper Review, Survey Analysis, Technical Analysis
+## Features
 
----
-
-## 🎨 Customization
-
-### Site Info
-
-Edit `_config.yml`:
-
-```yaml
-title: Haq Research
-author:
-  name: Abdul Haq
-  linkedin: https://linkedin.com/in/...
-  github: https://github.com/...
-```
-
-### Styling
-
-Edit `assets/css/style.css`. Key variables:
-
-```css
-:root {
-  --accent: #1a73e8;
-  --content-width: 750px;
-}
-```
-
-### Dark Mode
-
-Built-in! Toggle with 🌙 button. Colors in `[data-theme="dark"]`.
-
----
-
-## 🔧 Local Development
-
-```bash
-# Install dependencies
-bundle install
-
-# Run local server
-bundle exec jekyll serve
-
-# Open http://localhost:4000
-```
-
----
-
-## 📝 Content Types
-
-| Type | Location | Label Color |
-|------|----------|-------------|
-| Blog | `_posts/` | Blue |
-| Research | `_research/` | Amber |
-
----
+- **Dark theme default** with light mode toggle
+- **Doto font** (dot-matrix style) for headings
+- **Responsive design**
+- **Blogs + Research** sections
+- **Tags** page
 
 ## License
 
-Content © Abdul Haq. Code is MIT licensed.
+Content © Abdul Haq

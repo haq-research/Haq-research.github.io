@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,66 +8,55 @@
   
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
-  
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
 </head>
 <body>
+  <div class="accent-bar"></div>
+  
   <header class="site-header">
-    <div class="container">
-      <div class="header-content">
-        <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
-        
-        <nav class="site-nav">
-          <a href="{{ '/blogs/' | relative_url }}" {% if page.url contains '/blogs' %}class="active"{% endif %}>Blogs</a>
-          <span class="nav-divider">|</span>
-          <a href="{{ '/research/' | relative_url }}" {% if page.url contains '/research' %}class="active"{% endif %}>Research</a>
-          <span class="nav-divider">|</span>
-          <a href="{{ '/tags/' | relative_url }}" {% if page.url == '/tags/' %}class="active"{% endif %}>Tags</a>
-          <span class="nav-divider">|</span>
-          <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
-          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-            <span class="theme-icon">🌙</span>
-          </button>
-        </nav>
-      </div>
+    <div class="header-inner">
+      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+      <nav class="site-nav">
+        <a href="{{ '/blogs/' | relative_url }}" {% if page.url contains '/blogs' %}class="active"{% endif %}>Blogs</a>
+        <a href="{{ '/research/' | relative_url }}" {% if page.url contains '/research' %}class="active"{% endif %}>Research</a>
+        <a href="{{ '/tags/' | relative_url }}" {% if page.url == '/tags/' %}class="active"{% endif %}>Tags</a>
+        <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="theme-icon">☀️</span>
+        </button>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main class="main">
     {{ content }}
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>© {{ 'now' | date: "%Y" }} <a href="{{ '/about/' | relative_url }}">{{ site.author.name }}</a> · 
-        <a href="{{ site.author.linkedin }}">LinkedIn</a> · 
-        <a href="{{ site.author.github }}">GitHub</a></p>
-      </div>
+    <div class="footer-content">
+      © {{ 'now' | date: "%Y" }} <a href="{{ '/about/' | relative_url }}">{{ site.author.name }}</a> · 
+      <a href="https://linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a> · 
+      <a href="https://github.com/{{ site.author.github }}">GitHub</a>
     </div>
   </footer>
 
   <script>
     function toggleTheme() {
       const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      const icon = document.querySelector('.theme-icon');
-      icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
     }
     
-    // Load saved theme
+    // Load saved theme (default to dark)
     (function() {
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      
+      const saved = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
       document.addEventListener('DOMContentLoaded', function() {
         const icon = document.querySelector('.theme-icon');
-        if (icon) icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
       });
     })();
   </script>

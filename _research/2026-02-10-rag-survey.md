@@ -9,26 +9,17 @@ paper_authors: "Gao et al., 2024"
 paper_url: "https://arxiv.org/abs/2312.10997"
 ---
 
-This comprehensive survey covers the RAG landscape, from basic architectures to advanced techniques. Here's what practitioners need to know.
+This survey covers the RAG landscape comprehensively. Here's what practitioners need to know.
 
 ## RAG Fundamentals
 
-Retrieval-Augmented Generation combines:
+Retrieval-Augmented Generation combines a **retriever** (finds relevant documents) with a **generator** (LLM that conditions on retrieved context).
 
-1. **Retriever**: Finds relevant documents from a corpus
-2. **Generator**: LLM that conditions on retrieved context
-
-This addresses key LLM limitations:
-
-- **Knowledge cutoff**: Access up-to-date information
-- **Hallucination**: Ground responses in source documents
-- **Domain specificity**: Inject specialized knowledge
+This addresses key LLM limitations: knowledge cutoff, hallucination, and domain specificity.
 
 ## Retrieval Strategies
 
 ### Dense Retrieval
-
-Embed queries and documents in shared vector space:
 
 - **Bi-encoders**: Separate encoders for queries and documents
 - **Cross-encoders**: Joint encoding (more accurate, less scalable)
@@ -36,61 +27,23 @@ Embed queries and documents in shared vector space:
 
 ### Chunking Strategies
 
-How you split documents significantly impacts retrieval:
-
 - **Fixed-size chunks**: Simple but may break semantic units
-- **Semantic chunking**: Split on natural boundaries (paragraphs, sections)
+- **Semantic chunking**: Split on natural boundaries
 - **Hierarchical**: Multiple granularities for different query types
 
 ## Advanced Techniques
 
-### Query Transformation
-
-Improve retrieval by transforming queries:
-
 - **Query expansion**: Add related terms
-- **Hypothetical document embeddings (HyDE)**: Generate ideal document, embed that
-- **Multi-query**: Generate multiple query variants, aggregate results
-
-### Reranking
-
-Two-stage retrieval for better precision:
-
-1. Fast initial retrieval (vector search)
-2. Accurate reranking (cross-encoder)
-
-### Iterative Retrieval
-
-For complex queries:
-
-1. Initial retrieval
-2. Generate partial answer
-3. Retrieve again based on gaps
-4. Iterate until complete
-
-## Production Considerations
-
-### Evaluation Metrics
-
-- **Retrieval**: Recall@k, MRR, NDCG
-- **Generation**: Faithfulness, relevance, coherence
-- **End-to-end**: Task-specific metrics (accuracy, F1)
-
-### Common Failure Modes
-
-1. **Retrieval misses**: Relevant docs not retrieved
-2. **Context overflow**: Too much context dilutes relevance
-3. **Hallucination despite context**: Model ignores retrieved information
-4. **Outdated embeddings**: Knowledge base updated but not re-embedded
+- **HyDE**: Generate hypothetical document, embed that
+- **Reranking**: Two-stage retrieval for better precision
+- **Iterative retrieval**: Retrieve-generate-retrieve cycles
 
 ## Practical Recommendations
 
-Based on this survey and production experience:
+1. Start simple: Basic RAG before advanced techniques
+2. Invest in chunking: Often the highest-impact optimization
+3. Add reranking: Significant quality improvement
+4. Monitor retrieval quality: Many issues trace back here
+5. Iterate on prompts: How you present context matters
 
-1. **Start simple**: Basic RAG before advanced techniques
-2. **Invest in chunking**: Often the highest-impact optimization
-3. **Add reranking**: Significant quality improvement, manageable latency
-4. **Monitor retrieval quality**: Many issues trace back to retrieval
-5. **Iterate on prompts**: How you present context matters enormously
-
-RAG remains the most practical way to extend LLM capabilities with external knowledge. This survey provides an excellent foundation for building production systems.
+RAG remains the most practical way to extend LLM capabilities with external knowledge.

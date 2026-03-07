@@ -9,6 +9,6 @@ layout: default
   {% endif %}
 </header>
 
-<div class="page-content {% if page.title == 'About' %}about-content{% endif %}">
+<div class="{% if page.title == 'About' %}about-content{% else %}page-content{% endif %}">
   {{ content }}
 </div>

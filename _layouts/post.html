@@ -5,16 +5,12 @@ layout: default
 <article>
   <header class="post-header">
     <span class="entry-type blog">Blog</span>
-    <h1 class="post-title">{{ page.title }}</h1>
+    <h1 class="entry-title">{{ page.title }}</h1>
     <div class="entry-meta">
-      <span>{{ page.date | date: "%B %-d, %Y" }}</span>
-      <span class="separator">|</span>
-      <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
-      <span class="separator">|</span>
-      <span>{{ site.author.name }}</span>
+      {{ page.date | date: "%B %-d, %Y" }} · {{ content | number_of_words | divided_by: 200 | plus: 1 }} min read · {{ site.author.name }}
     </div>
     {% if page.tags.size > 0 %}
-    <div class="entry-tags" style="margin-top: 12px;">
+    <div class="entry-tags">
       {% for tag in page.tags %}
       <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">{{ tag }}</a>
       {% endfor %}
@@ -26,5 +22,5 @@ layout: default
     {{ content }}
   </div>
 
-  <a href="{{ '/blogs/' | relative_url }}" class="back-link">← Back to all blogs</a>
+  <a href="{{ '/blogs/' | relative_url }}" class="back-link">← Back to blogs</a>
 </article>

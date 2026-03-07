@@ -9,76 +9,33 @@ paper_authors: "Wei et al., 2022"
 paper_url: "https://arxiv.org/abs/2201.11903"
 ---
 
-Chain-of-thought (CoT) prompting has become a standard technique for improving LLM reasoning. But when does it actually help, and why?
+Chain-of-thought (CoT) prompting has become a standard technique for improving LLM reasoning. But when does it actually help?
 
 ## The Core Idea
 
-Instead of asking for direct answers, prompt the model to show its reasoning:
-
-**Standard prompting:**
-```
-Q: Roger has 5 tennis balls. He buys 2 cans of 3. How many does he have?
-A: 11
-```
-
-**Chain-of-thought:**
-```
-Q: Roger has 5 tennis balls. He buys 2 cans of 3. How many does he have?
-A: Roger starts with 5 balls. 2 cans × 3 balls = 6 balls. 5 + 6 = 11 balls.
-```
+Instead of asking for direct answers, prompt the model to show its reasoning step by step.
 
 ## When CoT Helps
 
 The paper shows CoT primarily helps on:
 
-1. **Multi-step arithmetic**: Problems requiring sequential calculations
-2. **Symbolic reasoning**: Logic puzzles, constraint satisfaction
-3. **Commonsense reasoning**: Tasks requiring world knowledge integration
+- **Multi-step arithmetic**: Problems requiring sequential calculations
+- **Symbolic reasoning**: Logic puzzles, constraint satisfaction
+- **Commonsense reasoning**: Tasks requiring world knowledge integration
 
-CoT shows **minimal improvement** on:
-
-- Simple factual recall
-- Single-step problems
-- Tasks without clear reasoning chains
+CoT shows minimal improvement on simple factual recall or single-step problems.
 
 ## Why It Works
 
-Several hypotheses:
-
-### Decomposition
-
-Breaking complex problems into steps reduces cognitive load at each step. The model solves easier subproblems.
-
-### Working Memory
-
-The chain of thought serves as external working memory. Intermediate results are explicitly stored in context.
-
-### Error Localization
-
-Mistakes become visible and potentially correctable. Useful for debugging and self-correction.
+- **Decomposition**: Breaking complex problems into easier subproblems
+- **Working Memory**: The chain serves as external working memory
+- **Error Localization**: Mistakes become visible and correctable
 
 ## Practical Variants
 
-### Zero-shot CoT
-
-Simply add "Let's think step by step" to prompts. Surprisingly effective without examples.
-
-### Self-Consistency
-
-Generate multiple reasoning chains, take majority vote on final answer. Improves accuracy but increases cost.
-
-### Tree of Thoughts
-
-Explore multiple reasoning branches, backtrack when stuck. More complex but handles harder problems.
-
-## Implementation Considerations
-
-For production systems:
-
-1. **Cost**: CoT uses more tokens. Budget for 2-5x output length.
-2. **Latency**: Longer outputs = higher latency. Stream if possible.
-3. **Parsing**: Extract final answers from reasoning chains reliably.
-4. **Verification**: Reasoning chains can be wrong even with correct answers.
+- **Zero-shot CoT**: Just add "Let's think step by step"
+- **Self-Consistency**: Generate multiple chains, majority vote
+- **Tree of Thoughts**: Explore multiple reasoning branches
 
 ## When to Use CoT
 
@@ -90,6 +47,5 @@ For production systems:
 **Skip CoT when:**
 - Simple factual queries
 - Latency is critical
-- Output parsing is difficult
 
-Chain-of-thought is a powerful technique, but it's not universally applicable. Match the prompting strategy to your task requirements.
+Chain-of-thought is powerful but not universally applicable. Match the strategy to your task.

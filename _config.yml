@@ -1,12 +1,14 @@
-title: Haq Research
+title: HAQ RESEARCH
 description: AI Systems, Architecture & Research Notes
+
 url: "https://haq-research.github.io"
 baseurl: ""
 
 author:
   name: Abdul Haq
-  linkedin: https://www.linkedin.com/in/mohammadhaq01/
-  github: https://github.com/haq-research
+  email: your-email@example.com
+  linkedin: mohammadhaq01
+  github: haq-research
 
 # Build settings
 markdown: kramdown
@@ -28,17 +30,14 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      content_type: "blog"
   - scope:
       path: ""
       type: "research"
     values:
       layout: "research"
-      content_type: "research"
 
-# Exclude from build
+# Exclude
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
-  - node_modules
