@@ -1,13 +1,12 @@
 ---
-layout: post
-title: Context & Memory Management for Enterprise AI
+layout: single
+title: "Context & Memory Management for Enterprise AI"
 date: 2026-02-15
-description: Long-term and short-term memory architectures for LLM applications.
-tags: [memory-systems, rag, enterprise-ai]
 categories: blog
+tags: [memory-systems, rag, enterprise-ai]
 ---
 
-One of the most critical challenges in building enterprise AI systems is managing context effectively. As conversations grow longer and workflows become more complex, the ability to maintain relevant context becomes the difference between a useful AI assistant and a frustrating one.
+One of the most critical challenges in building enterprise AI systems is managing context effectively.
 
 ## The Context Problem
 

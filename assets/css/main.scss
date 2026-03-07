@@ -1,37 +1,34 @@
-/* Custom Doto Font Override for al-folio */
+---
+---
+/* Custom Doto Font Override */
 @import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
 
-/* Apply Doto to headings */
-h1, h2, h3, h4, h5, h6 {
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.page__title,
+.archive__item-title,
+.site-title {
   font-family: 'Doto', sans-serif !important;
   letter-spacing: 1.5px;
 }
 
 /* Navigation */
-.navbar-brand,
-.nav-link {
-  font-family: 'Doto', sans-serif !important;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-/* Post titles */
-.post-title,
-.card-title {
-  font-family: 'Doto', sans-serif !important;
-  letter-spacing: 1px;
-}
-
-/* Tags and badges */
-.badge,
-.tag {
+.greedy-nav a,
+.greedy-nav .visible-links a {
   font-family: 'Doto', sans-serif !important;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-/* Footer */
-footer {
+/* Author name */
+.author__name {
   font-family: 'Doto', sans-serif !important;
   letter-spacing: 1px;
+}
+
+/* Tags */
+.page__taxonomy-item {
+  font-family: 'Doto', sans-serif !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }

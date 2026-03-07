@@ -1,12 +1,4 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3"
-gem "webrick"
-
-group :jekyll_plugins do
-  gem "jekyll-feed"
-  gem "jekyll-paginate-v2"
-  gem "jekyll-scholar"
-  gem "jekyll-remote-theme"
-  gem "jekyll-seo-tag"
-end
+gem "github-pages", group: :jekyll_plugins
+gem "jekyll-include-cache", group: :jekyll_plugins

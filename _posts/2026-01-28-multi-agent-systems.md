@@ -1,10 +1,9 @@
 ---
-layout: post
-title: Orchestrating Multi-Agent AI Systems
+layout: single
+title: "Orchestrating Multi-Agent AI Systems"
 date: 2026-01-28
-description: Design patterns for autonomous AI agent orchestration.
-tags: [agentic-ai, multi-agent, architecture]
 categories: blog
+tags: [agentic-ai, multi-agent, architecture]
 ---
 
 As AI systems grow more capable, we're moving beyond single-model architectures toward orchestrated multi-agent systems.
@@ -39,5 +38,3 @@ Sequential processing through specialized stages.
 3. Implement comprehensive logging for debugging
 4. Use structured output formats for inter-agent communication
 5. Build in human-in-the-loop checkpoints for critical decisions
-
-Multi-agent systems unlock powerful capabilities, but they also introduce complexity. Choose this architecture when the benefits clearly outweigh the operational overhead.
