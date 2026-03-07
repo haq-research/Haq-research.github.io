@@ -1,0 +1,8 @@
+title: Haq Research
+author: Abdul Haq
+description: Research and engineering notes on scalable AI systems, LLM platforms, and ML infrastructure.
+
+header_pages:
+  - blog.md
+  - research.md
+  - about.md
