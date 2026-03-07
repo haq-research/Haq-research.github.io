@@ -1,8 +1,10 @@
 ---
 layout: post
-title: "Orchestrating Multi-Agent AI Systems"
+title: Orchestrating Multi-Agent AI Systems
 date: 2026-01-28
-tags: [Agentic AI, Multi-Agent Systems, Architecture]
+description: Design patterns for autonomous AI agent orchestration.
+tags: [agentic-ai, multi-agent, architecture]
+categories: blog
 ---
 
 As AI systems grow more capable, we're moving beyond single-model architectures toward orchestrated multi-agent systems.

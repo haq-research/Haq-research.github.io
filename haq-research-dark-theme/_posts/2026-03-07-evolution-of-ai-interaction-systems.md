@@ -1,8 +1,10 @@
 ---
 layout: post
-title: "The Evolution of AI Interaction Systems"
+title: The Evolution of AI Interaction Systems
 date: 2026-03-07
-tags: [AI Systems, LLM Architecture, System Design]
+description: We're witnessing a shift from stateless prompt-response systems toward context-aware collaborative intelligence systems.
+tags: [ai-systems, llm-architecture, system-design]
+categories: blog
 ---
 
 Over the past few months, I've been actively using large language models like ChatGPT and Claude for research, architecture exploration, and system design thinking.

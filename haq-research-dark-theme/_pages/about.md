@@ -1,12 +1,20 @@
 ---
-layout: page
+layout: about
 title: About
-permalink: /about/
+permalink: /
+subtitle: AI Solution Architect & Senior AI Engineer
+
+profile:
+  align: right
+  image: prof_pic.jpg # add your photo to assets/img/
+  image_circular: true
+
+news: true
+selected_papers: true
+social: true
 ---
 
-Hi, I'm **Abdul Haq** — an AI Solution Architect and Senior AI Engineer with experience designing enterprise-scale AI and Generative AI platforms in regulated industries such as pharmaceuticals and healthcare.
-
-## What I Do
+I design enterprise-scale AI and Generative AI platforms in regulated industries like pharmaceuticals and healthcare.
 
 My work focuses on building **production-grade AI systems** that combine:
 
@@ -24,14 +32,3 @@ I am particularly interested in **context and memory management for enterprise A
 - Agentic AI and Multi-Agent Systems
 - Retrieval-Augmented Generation (RAG)
 - Context and Memory Management for LLMs
-- Scalable AI & ML Infrastructure
-
-## This Site
-
-- **Blogs** — Articles and posts on AI systems architecture
-- **Research** — Reviews of influential AI research papers
-
-## Connect
-
-- [LinkedIn](https://linkedin.com/in/mohammadhaq01)
-- [GitHub](https://github.com/haq-research)
