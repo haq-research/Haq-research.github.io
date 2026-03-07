@@ -2,6 +2,7 @@
 ---
 layout: home
 title: Haq Research
+permalink: /
 ---
 
 # Haq Research
