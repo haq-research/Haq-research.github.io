@@ -13,13 +13,13 @@ markdown: kramdown
 highlighter: rouge
 
 # Permalinks
-permalink: /posts/:title/
+permalink: /blogs/:title/
 
 # Collections
 collections:
-  posts:
+  research:
     output: true
-    permalink: /posts/:title/
+    permalink: /research/:title/
 
 # Defaults
 defaults:
@@ -28,9 +28,17 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      content_type: "blog"
+  - scope:
+      path: ""
+      type: "research"
+    values:
+      layout: "research"
+      content_type: "research"
 
 # Exclude from build
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - node_modules

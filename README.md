@@ -11,35 +11,32 @@ Personal AI research blog covering AI systems architecture, LLM platforms, and s
 ### Step 1: Create GitHub Repository
 
 1. Go to [github.com/new](https://github.com/new)
-2. Name it exactly: `haq-research.github.io` (or `<your-username>.github.io`)
+2. Name it: `haq-research.github.io`
 3. Make it **Public**
-4. Don't initialize with README (you'll push this code)
+4. Don't initialize with README
 
 ### Step 2: Push This Code
 
 ```bash
-# Clone or download this folder, then:
 cd haq-research-site
 
-# Initialize git
 git init
 git add .
-git commit -m "Initial commit: Haq Research site"
+git commit -m "Initial commit"
 
-# Add your remote and push
-git remote add origin https://github.com/haq-research/haq-research.github.io.git
+git remote add origin https://github.com/YOUR_USERNAME/haq-research.github.io.git
 git branch -M main
 git push -u origin main
 ```
 
 ### Step 3: Enable GitHub Pages
 
-1. Go to your repository → **Settings** → **Pages**
+1. Repository → **Settings** → **Pages**
 2. Source: **Deploy from a branch**
 3. Branch: `main` / `/ (root)`
 4. Click **Save**
 
-Your site will be live at `https://haq-research.github.io` within a few minutes!
+Your site will be live at `https://YOUR_USERNAME.github.io` in ~2 minutes!
 
 ---
 
@@ -47,76 +44,77 @@ Your site will be live at `https://haq-research.github.io` within a few minutes!
 
 ```
 haq-research-site/
-├── _config.yml          # Site configuration
-├── _layouts/            # Page templates
-│   ├── default.html     # Base layout
-│   ├── home.html        # Homepage with post list
-│   ├── post.html        # Individual blog post
-│   └── page.html        # Static pages
-├── _posts/              # Blog posts (add new posts here!)
-│   └── 2026-03-07-evolution-of-ai-interaction-systems.md
-├── assets/
-│   └── css/
-│       └── style.css    # All styles
-├── index.md             # Homepage
-├── about.md             # About page
-├── archive.md           # Post archive
-├── tags.md              # Tags page
-├── Gemfile              # Ruby dependencies
-└── README.md            # This file
+├── _config.yml              # Site configuration
+├── _layouts/
+│   ├── default.html         # Base layout
+│   ├── home.html            # Homepage
+│   ├── post.html            # Blog post layout
+│   ├── research.html        # Research post layout
+│   └── page.html            # Static pages
+├── _posts/                  # Blog posts
+│   └── 2026-03-07-example.md
+├── _research/               # Research posts
+│   └── 2026-02-28-example.md
+├── assets/css/
+│   └── style.css            # All styles
+├── index.md                 # Homepage
+├── blogs.md                 # Blogs listing
+├── research.md              # Research listing
+├── tags.md                  # Tags page
+├── about.md                 # About page
+└── README.md
 ```
 
 ---
 
-## ✍️ Writing New Posts
+## ✍️ Adding Content
 
-Create a new file in `_posts/` with this naming format:
+### New Blog Post
 
-```
-YYYY-MM-DD-your-post-title.md
-```
-
-Example: `_posts/2026-03-15-rag-architecture-patterns.md`
-
-### Post Template
+Create `_posts/YYYY-MM-DD-title.md`:
 
 ```markdown
 ---
 layout: post
-title: "Your Post Title"
+title: "Your Blog Title"
 date: 2026-03-15
-tags: [RAG, Architecture, LLM]
+tags: [AI, Architecture]
 ---
 
-Your content here. Supports full Markdown:
-
-## Headings
-
-**Bold**, *italic*, `code`
-
-- Bullet lists
-- Like this
-
-```python
-# Code blocks with syntax highlighting
-def hello():
-    return "Hello, world!"
+Your content here...
 ```
 
-> Blockquotes for emphasis
+### New Research Post
 
-[Links](https://example.com) work too.
+Create `_research/YYYY-MM-DD-title.md`:
+
+```markdown
+---
+layout: research
+title: "Paper Review Title"
+date: 2026-03-15
+tags: [Transformers, Architecture]
+research_type: "Paper Review"
+paper_title: "Original Paper Title"
+paper_authors: "Author et al., 2024"
+paper_url: "https://arxiv.org/abs/..."
+---
+
+Your analysis here...
 ```
+
+**Research types:** Paper Review, Survey Analysis, Technical Analysis
 
 ---
 
 ## 🎨 Customization
 
 ### Site Info
+
 Edit `_config.yml`:
+
 ```yaml
 title: Haq Research
-description: Your description
 author:
   name: Abdul Haq
   linkedin: https://linkedin.com/in/...
@@ -124,27 +122,29 @@ author:
 ```
 
 ### Styling
-All styles are in `assets/css/style.css`. Key variables at the top:
+
+Edit `assets/css/style.css`. Key variables:
+
 ```css
 :root {
-  --accent: #1a73e8;      /* Link color */
-  --content-width: 750px;  /* Max content width */
-  /* ... */
+  --accent: #1a73e8;
+  --content-width: 750px;
 }
 ```
 
 ### Dark Mode
-Dark mode is built-in! Users can toggle with the 🌙 button. Colors are defined in `[data-theme="dark"]` section.
+
+Built-in! Toggle with 🌙 button. Colors in `[data-theme="dark"]`.
 
 ---
 
-## 🔧 Local Development (Optional)
-
-If you want to preview changes locally before pushing:
+## 🔧 Local Development
 
 ```bash
-# Install Ruby and Bundler first, then:
+# Install dependencies
 bundle install
+
+# Run local server
 bundle exec jekyll serve
 
 # Open http://localhost:4000
@@ -152,26 +152,12 @@ bundle exec jekyll serve
 
 ---
 
-## 📝 Adding Whitepapers/Research
+## 📝 Content Types
 
-For research papers, create a `research/` folder and add markdown files:
-
-```
-research/
-├── index.md              # Research listing page
-├── rag-enterprise.md     # Individual paper
-└── llm-evaluation.md
-```
-
----
-
-## 🔗 Connecting Custom Domain (Optional)
-
-1. Add a `CNAME` file with your domain: `haqresearch.com`
-2. Configure DNS:
-   - A record: `185.199.108.153`
-   - A record: `185.199.109.153`
-   - CNAME: `www` → `haq-research.github.io`
+| Type | Location | Label Color |
+|------|----------|-------------|
+| Blog | `_posts/` | Blue |
+| Research | `_research/` | Amber |
 
 ---
 

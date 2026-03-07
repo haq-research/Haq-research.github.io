@@ -30,9 +30,8 @@ I am particularly interested in **context and memory management for enterprise A
 
 This site contains:
 
-- **Technical blogs** on AI systems and ML infrastructure
-- **Architecture deep dives** for real-world AI platforms
-- **Research notes** exploring new ideas in AI engineering
+- **Blogs** — Long-form articles and short posts on AI systems architecture, LLM platforms, and engineering insights
+- **Research** — Reviews and technical insights on influential AI research papers
 
 ## Connect
 

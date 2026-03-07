@@ -2,14 +2,14 @@
 layout: default
 ---
 
-<section class="hero">
-  <h1 class="hero-title"><span class="wave">👋</span> Welcome to Haq Research</h1>
-  <p class="hero-description">
+<section class="welcome-section">
+  <h1 class="welcome-title"><span class="wave">👋</span> Welcome to Haq Research</h1>
+  <p class="welcome-description">
     Hi, I'm <strong>Abdul Haq</strong> — an AI Solution Architect and Senior AI Engineer. 
     I write about AI systems architecture, LLM platforms, and building production-grade 
     generative AI systems in regulated industries like pharmaceuticals and healthcare.
   </p>
-  <div class="hero-links">
+  <div class="welcome-links">
     <a href="{{ site.author.linkedin }}">
       <svg viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
       LinkedIn
@@ -21,29 +21,76 @@ layout: default
   </div>
 </section>
 
-<ul class="post-list">
-  {% for post in site.posts %}
-  <li class="post-entry">
-    <h2 class="post-title">
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </h2>
-    <div class="post-meta">
-      <span>Date: {{ post.date | date: "%B %-d, %Y" }}</span>
-      <span class="separator">|</span>
-      <span class="reading-time">Estimated Reading Time: {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min</span>
-      <span class="separator">|</span>
-      <span>Author: {{ site.author.name }}</span>
-    </div>
-    <p class="post-excerpt">
-      {{ post.excerpt | strip_html | truncatewords: 50 }}
-    </p>
-    {% if post.tags.size > 0 %}
-    <div class="post-tags">
-      {% for tag in post.tags %}
-      <span class="tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
+<!-- Blogs Section -->
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Blogs</h2>
+    <a href="{{ '/blogs/' | relative_url }}" class="section-link">View all →</a>
+  </div>
+
+  <ul class="content-list">
+    {% for post in site.posts limit:3 %}
+    <li class="content-entry">
+      <span class="entry-type blog">Blog</span>
+      <h3 class="entry-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
+      <div class="entry-meta">
+        <span>{{ post.date | date: "%B %-d, %Y" }}</span>
+        <span class="separator">|</span>
+        <span>{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      </div>
+      <p class="entry-excerpt">
+        {{ post.excerpt | strip_html | truncatewords: 35 }}
+      </p>
+      {% if post.tags.size > 0 %}
+      <div class="entry-tags">
+        {% for tag in post.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- Research Section -->
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Research</h2>
+    <a href="{{ '/research/' | relative_url }}" class="section-link">View all →</a>
+  </div>
+
+  <ul class="content-list">
+    {% for paper in site.research limit:3 %}
+    <li class="content-entry">
+      <span class="entry-type research">Research</span>
+      <h3 class="entry-title">
+        <a href="{{ paper.url | relative_url }}">{{ paper.title }}</a>
+      </h3>
+      {% if paper.paper_title %}
+      <div class="paper-reference">
+        <strong>Paper:</strong> {{ paper.paper_authors }} — "{{ paper.paper_title }}"
+        {% if paper.paper_url %}<a href="{{ paper.paper_url }}" class="paper-link">arXiv →</a>{% endif %}
+      </div>
+      {% endif %}
+      <div class="entry-meta">
+        <span>{{ paper.date | date: "%B %-d, %Y" }}</span>
+        <span class="separator">|</span>
+        <span>{{ paper.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      </div>
+      <p class="entry-excerpt">
+        {{ paper.excerpt | strip_html | truncatewords: 35 }}
+      </p>
+      {% if paper.tags.size > 0 %}
+      <div class="entry-tags">
+        {% for tag in paper.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>

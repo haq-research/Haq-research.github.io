@@ -4,8 +4,16 @@ layout: default
 
 <article>
   <header class="post-header">
-    <span class="entry-type blog">Blog</span>
+    <span class="entry-type research">{{ page.research_type | default: "Research" }}</span>
     <h1 class="post-title">{{ page.title }}</h1>
+    
+    {% if page.paper_title %}
+    <div class="paper-reference" style="margin: 16px 0;">
+      <strong>Paper:</strong> {{ page.paper_authors }} — "{{ page.paper_title }}"
+      {% if page.paper_url %}<a href="{{ page.paper_url }}" class="paper-link" target="_blank">arXiv →</a>{% endif %}
+    </div>
+    {% endif %}
+    
     <div class="entry-meta">
       <span>{{ page.date | date: "%B %-d, %Y" }}</span>
       <span class="separator">|</span>
@@ -26,5 +34,5 @@ layout: default
     {{ content }}
   </div>
 
-  <a href="{{ '/blogs/' | relative_url }}" class="back-link">← Back to all blogs</a>
+  <a href="{{ '/research/' | relative_url }}" class="back-link">← Back to all research</a>
 </article>
