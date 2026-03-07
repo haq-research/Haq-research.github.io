@@ -1,8 +1,16 @@
 title: Haq Research
-author: Abdul Haq
-description: Research and engineering notes on scalable AI systems, LLM platforms, and ML infrastructure.
+description: AI Systems, Architecture & Research Notes
+theme: minima
 
 header_pages:
-  - blog.md
-  - research.md
   - about.md
+  - research.md
+  - blog.md
+
+author:
+  name: Abdul Haq
+
+minima:
+  social_links:
+    - { platform: linkedin, user_url: "https://www.linkedin.com/in/mohammadhaq01/" }
+    - { platform: github, user_url: "https://github.com/haq-research" }
