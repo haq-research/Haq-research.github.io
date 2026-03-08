@@ -1,0 +1,62 @@
+/* Doto Font - Header and Nav only */
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
+
+/* Nunito Sans - Body text */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap');
+
+/* Site title only */
+.logo a {
+  font-family: 'Doto', sans-serif !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+
+/* Navigation links only */
+#menu a {
+  font-family: 'Doto', sans-serif !important;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #d71921 !important;
+}
+
+/* Optional: slightly lighter on hover */
+#menu a:hover {
+  color: #ff3333 !important;
+}
+
+/* H1 headings - Doto */
+h1,
+.post-title,
+.entry-header h1 {
+  font-family: 'Doto', sans-serif !important;
+  letter-spacing: 1px;
+}
+
+/* Everything else - Nunito Sans */
+body,
+.post-content,
+.post-title,
+.post-entry,
+.post-description,
+.post-meta,
+.toc,
+.footer,
+.archive-entry,
+.terms-tags,
+.entry-content,
+h2, h3, h4, h5, h6 {
+  font-family: 'Nunito Sans', sans-serif !important;
+}
+
+/* spacing between home info and posts */
+.home-info + .first-entry,
+.home-info ~ .post-entry {
+  margin-top: 10px;
+}
+
+/* spacing after welcome section */
+.first-entry {
+  margin-top: 10px;
+}
