@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Research on Abdul HaQ</title>
-    <link>http://localhost:1313/research/</link>
-    <description>Recent content in Research on Abdul HaQ</description>
+    <title>Enterprise AI on Abdul HaQ</title>
+    <link>http://localhost:1313/tags/enterprise-ai/</link>
+    <description>Recent content in Enterprise AI on Abdul HaQ</description>
     <generator>Hugo -- 0.153.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 08 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/research/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/enterprise-ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Enterprise Entity Linking: Lessons from JPMorgan&#39;s JEL System</title>
       <link>http://localhost:1313/research/enterprise-entity-linking-lessons-from-jpmorgans-jel-system/</link>
       <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/research/enterprise-entity-linking-lessons-from-jpmorgans-jel-system/</guid>
       <description>Insights from JPMorgan&amp;rsquo;s JEL system on how entity linking works in complex enterprise environments.</description>
-    </item>
-    <item>
-      <title>Chain-of-Thought Prompting: When and Why It Works</title>
-      <link>http://localhost:1313/research/chain-of-thought-prompting-when-and-why-it-works/</link>
-      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/research/chain-of-thought-prompting-when-and-why-it-works/</guid>
-      <description>Exploring the mechanics behind chain-of-thought prompting and its practical applications.</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="light">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Enterprise Entity Linking: Lessons from JPMorgan&#39;s JEL System | Abdul HaQ</title>
+<meta name="keywords" content="NLP, Entity Linking, Knowledge Graphs, Enterprise AI, Paper Review">
+<meta name="description" content="Insights from JPMorgan&rsquo;s JEL system on how entity linking works in complex enterprise environments.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/research/enterprise-entity-linking-lessons-from-jpmorgans-jel-system/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/research/enterprise-entity-linking-lessons-from-jpmorgans-jel-system/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    }
+
+</script><link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Abdul HaQ (Alt + H)">Abdul HaQ</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blogs">
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/research/" title="Research">
+                    <span>Research</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Enterprise Entity Linking: Lessons from JPMorgan&#39;s JEL System
+    </h1>
+    <div class="post-meta"><span title='2026-03-08 00:00:00 +0000 UTC'>March 8, 2026</span>&nbsp;·&nbsp;<span>4 min</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p><strong>Paper:</strong> JEL: Applying End-to-End Neural Entity Linking in JPMorgan
+Chase &mdash; <a href="https://arxiv.org/abs/2411.02695">arXiv</a></p>
+<hr>
+<p>Recently I&rsquo;ve been diving deep into <strong>enterprise-scale Entity Linking
+systems</strong>, particularly inspired by JPMorgan&rsquo;s JEL architecture.</p>
+<p>Entity linking is often described as a straightforward NLP task:</p>
+<ol>
+<li>Detect an entity mention in text\</li>
+<li>Link that mention to the correct entity in a knowledge base</li>
+</ol>
+<p>In controlled datasets this works reasonably well. But in <strong>enterprise
+environments</strong>, the problem becomes far more complex.</p>
+<p>This paper highlights how real-world systems need to go beyond textbook
+NLP and become <em>robust production-grade architectures</em>.</p>
+<hr>
+<p><strong>The Enterprise Challenge</strong></p>
+<p>Most academic research evaluates entity linking using structured
+datasets such as Wikipedia or news corpora.</p>
+<p>Enterprise data is very different.</p>
+<p>Financial institutions process massive volumes of documents such as:</p>
+<ul>
+<li>Financial filings</li>
+<li>Transaction logs</li>
+<li>Compliance reports</li>
+<li>Internal communications</li>
+<li>Regulatory documentation</li>
+</ul>
+<p>Within this data, entity references are rarely clean or consistent.</p>
+<p><em>Proprietary Entity Names</em></p>
+<p>Many entities only exist inside the organization&rsquo;s internal systems.</p>
+<p>Examples include:</p>
+<ul>
+<li>Private companies</li>
+<li>Internal funds</li>
+<li>Structured financial products</li>
+<li>Legal entities created for regulatory purposes</li>
+</ul>
+<p>These entities may not exist in public knowledge bases like Wikipedia or
+Wikidata.</p>
+<p><em>Naming Ambiguity</em></p>
+<p>A single organization may appear under many forms:</p>
+<ul>
+<li>JPM</li>
+<li>JP Morgan</li>
+<li>J.P. Morgan</li>
+<li>JPMorgan Chase</li>
+<li>JPMorgan Securities LLC</li>
+</ul>
+<p>These variations create ambiguity that simple string matching cannot
+resolve reliably.</p>
+<p><strong>Acronyms and Abbreviations</strong></p>
+<p>Financial institutions rely heavily on acronyms.</p>
+<p>Examples:</p>
+<ul>
+<li>GS → Goldman Sachs</li>
+<li>MS → Morgan Stanley</li>
+<li>JPM → JPMorgan</li>
+</ul>
+<p>The correct expansion depends heavily on <em>context</em>.</p>
+<p><strong>Poor Data Quality</strong></p>
+<p>Enterprise documents frequently contain:</p>
+<ul>
+<li>OCR errors</li>
+<li>Inconsistent formatting</li>
+<li>Partial entity mentions</li>
+<li>Legacy naming conventions</li>
+</ul>
+<p>Systems must therefore operate under <strong>noisy and incomplete
+information</strong>.</p>
+<h2 id="key-architectural-ideas">Key Architectural Ideas<a hidden class="anchor" aria-hidden="true" href="#key-architectural-ideas">#</a></h2>
+<p>One of the strongest insights from the JEL paper is that <strong>entity
+linking should not be treated as a simple classification task</strong>.</p>
+<p>Instead, the system architecture focuses on ranking and candidate
+generation.</p>
+<p><strong>1. Entity Linking Is a Ranking Problem</strong></p>
+<p>Traditional classification approaches attempt to directly predict the
+correct entity label.</p>
+<p>This becomes impractical when:</p>
+<ul>
+<li>The knowledge base contains <em>millions of entities</em></li>
+<li>New entities are continuously added</li>
+<li>Many entities share similar names</li>
+</ul>
+<p>Instead, the system works in three stages:</p>
+<ol>
+<li><em>Mention Detection</em> &ndash; Identify spans in text that might represent
+entities.</li>
+<li><em>Candidate Generation</em> &ndash; Retrieve a small set of possible
+entities from the knowledge base.</li>
+<li><em>Candidate Ranking</em> &ndash; Score and rank candidates to select the
+most likely match.</li>
+</ol>
+<p>This design significantly reduces computational complexity and improves
+scalability.</p>
+<hr>
+<p><strong>2. Embedding Space Design Matters</strong></p>
+<p>The system learns a <em>shared embedding space</em> where both mentions and
+entities are represented as vectors.</p>
+<p>The objective is geometric:</p>
+<ul>
+<li>Correct entity matches should appear <em>close together</em></li>
+<li>Incorrect candidates should be <em>far apart</em></li>
+</ul>
+<p>Training often uses <em>margin-based losses</em>, such as triplet loss.</p>
+<p>Example training structure:</p>
+<p>(Mention, Correct Entity, Incorrect Entity)</p>
+<p>The model learns:</p>
+<p>distance(Mention, Correct Entity) &lt; distance(Mention, Incorrect Entity)</p>
+<p>This geometric structure allows the model to generalize even when
+encountering <em>new entity variations</em>.</p>
+<hr>
+<p><strong>3. Hybrid Systems Win in Production</strong></p>
+<p>Pure deep learning is rarely sufficient in enterprise systems.</p>
+<p>Instead, strong systems combine multiple signals.</p>
+<p><em>Character-Level Similarity</em></p>
+<ul>
+<li>Edit distance</li>
+<li>Token overlap</li>
+<li>N‑gram similarity</li>
+</ul>
+<p>These techniques capture spelling variations.</p>
+<p><em>Semantic Embeddings</em></p>
+<p>Neural embeddings capture contextual meaning.</p>
+<p>Example:</p>
+<p>&ldquo;Apple announced new earnings&rdquo;</p>
+<p>vs</p>
+<p>&ldquo;I bought apples from the market&rdquo;</p>
+<p>Context allows the model to distinguish <em>company vs fruit</em>.</p>
+<p><em>Neural Sequence Models</em></p>
+<p>The system may use models such as:</p>
+<ul>
+<li>LSTM</li>
+<li>BiLSTM</li>
+</ul>
+<p>These capture surrounding context of entity mentions.</p>
+<p><em>Engineered Ranking Features</em></p>
+<p>Handcrafted features still matter:</p>
+<ul>
+<li>Entity popularity</li>
+<li>Historical linking frequency</li>
+<li>Knowledge graph relationships</li>
+<li>Document source reliability</li>
+</ul>
+<p>These significantly improve precision.</p>
+<p><em>Knowledge Graphs as the Backbone</em></p>
+<p>Entity linking outputs feed into an <em>enterprise knowledge graph</em>.</p>
+<p>This graph supports applications such as:</p>
+<ul>
+<li>Fraud detection</li>
+<li>Transaction monitoring</li>
+<li>Risk analysis</li>
+<li>Compliance alerts</li>
+<li>Relationship discovery between organizations</li>
+</ul>
+<p>Accurate linking ensures that all references to the same organization
+are <em>correctly consolidated</em>.</p>
+<p>Without this, downstream analytics become fragmented.</p>
+<p><em>Long‑Term System Challenges</em></p>
+<p>Enterprise entity systems must handle <em>entity evolution</em>.</p>
+<p>Organizations constantly change:</p>
+<ul>
+<li>Companies merge</li>
+<li>Subsidiaries are created</li>
+<li>Names change</li>
+<li>New financial products appear</li>
+</ul>
+<p>This introduces architectural challenges such as:</p>
+<ul>
+<li>Versioned entity schemas</li>
+<li>Temporal entity relationships</li>
+<li>Attribute updates over time</li>
+</ul>
+<p>Designing systems that support this evolution is a <strong>core engineering
+challenge</strong>.</p>
+<h4 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h4>
+<ul>
+<li>Reliability and precision matter more than novelty</li>
+<li>Production constraints shape architecture</li>
+<li>Hybrid systems outperform purely neural approaches</li>
+<li>Knowledge graphs act as foundational infrastructure</li>
+</ul>
+<p>Entity linking may appear to be a narrow NLP task.</p>
+<p>But at enterprise scale, it becomes a <em>systems engineering problem</em>
+involving data pipelines, ranking models, knowledge graph design, and
+entity lifecycle management.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/nlp/">NLP</a></li>
+      <li><a href="http://localhost:1313/tags/entity-linking/">Entity Linking</a></li>
+      <li><a href="http://localhost:1313/tags/knowledge-graphs/">Knowledge Graphs</a></li>
+      <li><a href="http://localhost:1313/tags/enterprise-ai/">Enterprise AI</a></li>
+      <li><a href="http://localhost:1313/tags/paper-review/">Paper Review</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Abdul HaQ</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
