@@ -12,7 +12,9 @@ It’s the evolution of the interaction architecture around these models.
 We’re witnessing a shift from stateless prompt-response systems to context-aware collaborative intelligence systems.
 
 Here’s what stands out:
+
 **Asynchronous, Thread-Isolated Execution**
+
 Earlier LLM interactions were blocking in nature: Prompt → Wait → Response.
 Now, conversations are treated as independent execution threads.
 Notifications, background processing, and thread isolation reduce cognitive load.
@@ -24,6 +26,7 @@ This mirrors distributed systems design:
 - It’s no longer a chatbot; It’s a task execution environment.
 
 **Clarification Before Computation**
+
 One strong behavior pattern in Anthropic’s Claude is structured clarification.
 Instead of generating incomplete output when context is insufficient, it asks constraint-defining questions first.
 
@@ -40,6 +43,7 @@ This is essentially requirement gathering before system design.
 In systems thinking terms: Better input constraints → Lower entropy output.
 
 **Built-in Feedback Loops**
+
 OpenAI’s ChatGPT UI constantly collects micro-feedback:
 - Helpful?, Not helpful?, Regenerate?
 - This turns static inference into a continuous optimization loop.
@@ -49,6 +53,7 @@ User → Model → Feedback → Model adaptation → Refined output
 We’re seeing human-in-the-loop optimization embedded directly into product UX.
 
 **Personalized Reasoning Styles**
+
 This is where things get interesting, Future AI systems won’t just remember facts about you.
 
 They’ll adapt to:
@@ -61,6 +66,7 @@ In other words:
 - Not just personalized content — Personalized cognition simulation, That’s a major architectural leap.
 
 **Context-Aware Task Continuation**
+
 Current improvements hint at something bigger:
 Persistent, cross-thread contextual awareness.
 
