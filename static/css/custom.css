@@ -1,20 +1,18 @@
 /* Doto Font for HAQ Research */
+/* Doto Font - Header and Nav only */
 @import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Doto', sans-serif !important;
-  letter-spacing: 1.5px;
-}
+/* Nunito Sans - Body text */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap');
 
-/* Site title */
+/* Site title only */
 .logo a {
   font-family: 'Doto', sans-serif !important;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* Navigation */
+/* Navigation links only */
 #menu a {
   font-family: 'Doto', sans-serif !important;
   letter-spacing: 1.5px;
@@ -22,30 +20,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.9rem;
 }
 
-/* Post titles */
+/* Everything else - Nunito Sans */
+body,
+.post-content,
 .post-title,
-.entry-title {
-  font-family: 'Doto', sans-serif !important;
-  letter-spacing: 1px;
-}
-
-/* Tags */
-.post-tags a,
-.terms-tags a {
-  font-family: 'Doto', sans-serif !important;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* Footer */
-.footer {
-  font-family: 'Doto', sans-serif !important;
-  letter-spacing: 1px;
-}
-
-/* spacing between header and home info */
-.home-info {
-  margin-top: -20px;
+.post-entry,
+.post-description,
+.post-meta,
+.toc,
+.footer,
+.archive-entry,
+.terms-tags,
+.entry-content,
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito Sans', sans-serif !important;
 }
 
 /* spacing between home info and posts */
