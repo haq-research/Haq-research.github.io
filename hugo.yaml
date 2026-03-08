@@ -1,11 +1,11 @@
 baseURL: "https://haq-research.github.io/"
 languageCode: "en-us"
-title: "Abdul Haq"
+title: "Abdul HaQ"
 theme: "PaperMod"
 
 # Default to dark mode
 params:
-  defaultTheme: dark
+  defaultTheme: light
   disableThemeToggle: false
   ShowReadingTime: true
   ShowPostNavLinks: true
@@ -15,14 +15,11 @@ params:
   
   # Home page
   homeInfoParams:
-    Title: "Welcome to Haq Research"
+    Title: "Welcome to Haq's Research"
     Content: >
-      AI Systems, Architecture & Research Notes by **Abdul Haq**
+      *AI Systems Engineer | Solution Architect | Researcher*
       
-      
-      I design enterprise-scale AI and Generative AI platforms. 
-      My focus is on LLM systems, RAG architectures, Memory Management and production-grade AI infrastructure.
-      I also share research notes and insights on AI systems, architecture, and related topics.
+      Designing enterprise-scale Generative AI. Specializing in LLM systems, RAG architecture, and production infrastructure. Exploring the intersection of AI, software engineering, and research. Join me on this journey to understand and build the future of AI.
 
   # Social icons
   socialIcons:
