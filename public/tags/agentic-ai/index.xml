@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 27 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/agentic-ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Why Scaling Matters — Even When You&#39;re Building for 10 Users</title>
-      <link>http://localhost:1313/blogs/why-scaling-matters-even-when-youre-building-for-10-users/</link>
+      <title>LLM-as-a-Judge</title>
+      <link>http://localhost:1313/blogs/llm-as-a-judge/</link>
       <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/why-scaling-matters-even-when-youre-building-for-10-users/</guid>
+      <guid>http://localhost:1313/blogs/llm-as-a-judge/</guid>
       <description>Moving beyond simple LLM-as-a-Judge patterns to multi-agent, tool-augmented evaluation loops that ensure factual precision in high-stakes domains like healthcare.</description>
     </item>
   </channel>
