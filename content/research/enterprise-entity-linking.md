@@ -27,7 +27,6 @@ environments**, the problem becomes far more complex.
 This paper highlights how real-world systems need to go beyond textbook
 NLP and become *robust production-grade architectures*.
 
-------------------------------------------------------------------------
 
 **The Enterprise Challenge**
 
