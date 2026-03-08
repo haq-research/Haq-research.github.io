@@ -1,7 +1,7 @@
 ---
-title: "The Evolution of AI Interaction Systems"
+title: "The Evolution of AI ChatBots"
 date: 2026-03-07
-tags: ["AI Systems", "LLM Architecture", "System Design"]
+tags: ["AI Systems", "LLM Architecture", "System Design", "Chatbots"]
 summary: "We're witnessing a shift from stateless prompt-response systems toward context-aware collaborative intelligence."
 ---
 
