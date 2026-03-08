@@ -28,6 +28,8 @@ params:
       url: "https://github.com/haq-research"
     - name: linkedin
       url: "https://linkedin.com/in/mohammadhaq01"
+    - name: gmail
+      url: "mailto:mohammadhaq01@gmail.com"
 
   # Custom CSS
   customCSS:
