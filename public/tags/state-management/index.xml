@@ -13,7 +13,7 @@
       <link>http://localhost:1313/research/recursive-language-models/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/research/recursive-language-models/</guid>
-      <description>Insights from JPMorgan&amp;rsquo;s JEL system on how entity linking works in complex enterprise environments.</description>
+      <description>The evolution of LLM implementation is moving away from &amp;ldquo;all-in-one&amp;rdquo; context-heavy prompts toward Recursive Language Model (RLM) architectures.</description>
     </item>
   </channel>
 </rss>

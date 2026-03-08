@@ -47,20 +47,38 @@
     <loc>http://localhost:1313/blogs/the-evolution-of-ai-chatbots/</loc>
     <lastmod>2026-03-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/agentic-ai/</loc>
+    <lastmod>2026-02-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/software-engineering/</loc>
     <lastmod>2026-02-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blogs/why-scaling-matters-even-when-youre-building-for-10-users/</loc>
     <lastmod>2026-02-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/research/chain-of-thought-prompting-when-and-why-it-works/</loc>
-    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/blogs/why-scaling-matters-even-when-youre-building-for-10-users/</loc>
+    <lastmod>2026-02-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/prompting/</loc>
-    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/memory-management/</loc>
+    <lastmod>2026-02-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/reasoning/</loc>
-    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/prompt-engineering/</loc>
+    <lastmod>2026-02-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/research/recursive-language-models/</loc>
+    <lastmod>2026-02-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/state-management/</loc>
+    <lastmod>2026-02-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/evaluation/</loc>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/reasoning-model/</loc>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/research/the-illusion-of-thinking-understanding-the-strengths-and-limitations-of-reasoning-model/</loc>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/about/</loc>
   </url>
