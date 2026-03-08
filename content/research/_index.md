@@ -1,5 +1,5 @@
 ---
 title: "Research"
-layout: "archives"
+layout: "list"
 summary: "Paper reviews and research notes"
 ---

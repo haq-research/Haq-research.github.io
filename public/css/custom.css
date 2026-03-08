@@ -11,34 +11,23 @@
   text-transform: uppercase;
 }
 
-
 /* Navigation links only */
 #menu a {
   font-family: 'Doto', sans-serif !important;
-  font-weight: 500 !important; /* This makes the text bold */
+  font-weight: 500 !important;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-size: 1 rem;
+  font-size: 1rem;
   color: #d71921 !important;
 }
 
-/* Optional: slightly lighter on hover */
 #menu a:hover {
   color: #ff3333 !important;
 }
 
-/* H1 headings - Doto */
-h1,
-.post-title,
-.entry-header h1 {
-  font-family: 'Doto', sans-serif !important;
-  letter-spacing: 1px;
-}
-
-/* Everything else - Nunito Sans */
+/* Everything else - Nunito Sans (REMOVED .post-title) */
 body,
 .post-content,
-.post-title,
 .post-entry,
 .post-description,
 .post-meta,
@@ -51,6 +40,13 @@ h2, h3, h4, h5, h6 {
   font-family: 'Nunito Sans', sans-serif !important;
 }
 
+/* H1 headings & post titles - Doto (LAST) */
+h1,
+.post-title {
+  font-family: 'Doto', sans-serif !important;
+  letter-spacing: 1px;
+}
+
 /* spacing between home info and posts */
 .home-info + .first-entry,
 .home-info ~ .post-entry {
@@ -60,4 +56,4 @@ h2, h3, h4, h5, h6 {
 /* spacing after welcome section */
 .first-entry {
   margin-top: -20px;
-} 
+}

@@ -1,5 +1,5 @@
 ---
 title: "Blogs"
-layout: "archives"
+layout: "list"
 summary: "All blog posts"
 ---
