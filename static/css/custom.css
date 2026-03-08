@@ -42,3 +42,19 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Doto', sans-serif !important;
   letter-spacing: 1px;
 }
+
+/* spacing between header and home info */
+.home-info {
+  margin-top: -20px;
+}
+
+/* spacing between home info and posts */
+.home-info + .first-entry,
+.home-info ~ .post-entry {
+  margin-top: 10px;
+}
+
+/* spacing after welcome section */
+.first-entry {
+  margin-top: 10px;
+}
