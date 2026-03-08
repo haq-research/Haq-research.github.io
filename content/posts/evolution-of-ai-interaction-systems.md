@@ -81,6 +81,8 @@ It begins to resemble:
 
 We are transitioning from: Single-query intelligence to Iterative, stateful, adaptive systems.
 
+---
+
 The real unlock is not bigger models. It’s better system design around them.
 We’re not building chatbots anymore, We’re designing cognitive infrastructure.
 Curious how others are seeing this shift.
