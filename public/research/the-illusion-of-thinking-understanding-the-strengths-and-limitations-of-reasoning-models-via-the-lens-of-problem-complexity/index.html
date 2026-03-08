@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Tags | Abdul HaQ</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
+<title>The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity | Abdul HaQ</title>
+<meta name="keywords" content="State Management, Memory Management, Prompt Engineering, Paper Review">
+<meta name="description" content="The evolution of LLM implementation is moving away from &ldquo;all-in-one&rdquo; context-heavy prompts toward Recursive Language Model (RLM) architectures.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/tags/">
+<link rel="canonical" href="http://localhost:1313/research/the-illusion-of-thinking-understanding-the-strengths-and-limitations-of-reasoning-models-via-the-lens-of-problem-complexity/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +18,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/research/the-illusion-of-thinking-understanding-the-strengths-and-limitations-of-reasoning-models-via-the-lens-of-problem-complexity/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,7 +36,7 @@
 </script><link rel="stylesheet" href="http://localhost:1313/css/custom.css">
 
 </head>
-<body class="list" id="top">
+<body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
@@ -78,7 +77,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/tags/" title="Tags">
-                    <span class="active">Tags</span>
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -90,51 +89,50 @@
     </nav>
 </header>
 <main class="main">
-<header class="page-header">
-    <h1>Tags</h1>
-</header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="http://localhost:1313/tags/ai-systems/">AI Systems <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/chatbots/">Chatbots <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/enterprise-ai/">Enterprise AI <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/entity-linking/">Entity Linking <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/knowledge-graphs/">Knowledge Graphs <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/llm-architecture/">LLM Architecture <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/memory-management/">Memory Management <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/nlp/">NLP <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/paper-review/">Paper Review <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/prompt-engineering/">Prompt engineering <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/software-engineering/">Software Engineering <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/state-management/">State Management <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/system-design/">System Design <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-</ul>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity
+    </h1>
+    <div class="post-meta"><span title='2026-02-13 00:00:00 +0000 UTC'>February 13, 2026</span>&nbsp;·&nbsp;<span>2 min</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p><strong>Paper:</strong> The Illusion of Thinking: &mdash; <a href="https://arxiv.org/pdf/2506.06941">arXiv</a></p>
+<hr>
+<p>The Illusion of Thinking — Understanding Reasoning Models Through Problem Complexity</p>
+<p>Large Reasoning Models (LRMs) promise something extraordinary — machines that can think. But beneath that promise lies an intriguing question: are these models truly reasoning, or are they performing an advanced form of pattern recognition disguised as logic?</p>
+<p>Recent work on “The Illusion of Thinking” explores this tension, questioning whether reasoning models genuinely generalize — or if their “thoughts” are statistical echoes of training data.</p>
+<p>In our own experiments building a Clinical Trials Validation Agent, we compared traditional LLMs (with Chain-of-Thought) and LRMs (also with CoT). Surprisingly, both achieved similar results under identical compute budgets. Yet the nuances told a deeper story — sometimes, the LRM overthought, adding unnecessary reasoning steps that actually reduced accuracy.</p>
+<p>A few reflections from this experience and recent research:
+&ndash; Illusion of Reasoning: LRMs can sound logical but may not be logically sound. Their step-by-step reasoning often mirrors learned linguistic patterns rather than true problem-solving.</p>
+<p>&ndash; Scaling ≠ Understanding: Increasing model size or reasoning tokens improves performance only up to a point. Beyond that, we observe diminishing returns as complexity grows — a scaling limitation that mirrors “cognitive overload.”</p>
+<p>&ndash; Overthinking Phenomenon: Longer chains of thought can hurt accuracy when the model elaborates beyond the relevant evidence. In reasoning, more isn’t always better.</p>
+<p>&ndash; Control and Constraints Matter: When placed in strict environments (like clinical validation, with structured evidence and guidelines), LRMs often behave like sophisticated text predictors rather than verifiers.</p>
+<p>&ndash; The Road Ahead: The next leap in reasoning won’t come from “thinking harder,” but from thinking right — models that can:
+Verify each step against factual or symbolic checks.
+&ndash;&gt; Handle problem complexity adaptively.
+&ndash;&gt; Stop when enough evidence is reached.
+&ndash;&gt; Explain their reasoning faithfully.</p>
+<p>As we build more agentic systems, especially for domains like healthcare and science, it’s critical we look beyond polished logic traces.
+The real goal isn’t to make models sound more human — it’s to make their reasoning more reliable.</p>
+<p>Interesting read - &ldquo;The Illusion of thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity&rdquo;</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/state-management/">State Management</a></li>
+      <li><a href="http://localhost:1313/tags/memory-management/">Memory Management</a></li>
+      <li><a href="http://localhost:1313/tags/prompt-engineering/">Prompt Engineering</a></li>
+      <li><a href="http://localhost:1313/tags/paper-review/">Paper Review</a></li>
+    </ul>
+
+  </footer>
+</article>
     </main>
     
 <footer class="footer">
@@ -211,6 +209,53 @@
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

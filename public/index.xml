@@ -37,11 +37,11 @@
       <description>The evolution of LLM implementation is moving away from &amp;ldquo;all-in-one&amp;rdquo; context-heavy prompts toward Recursive Language Model (RLM) architectures.</description>
     </item>
     <item>
-      <title>Chain-of-Thought Prompting: When and Why It Works</title>
-      <link>http://localhost:1313/research/chain-of-thought-prompting-when-and-why-it-works/</link>
-      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/research/chain-of-thought-prompting-when-and-why-it-works/</guid>
-      <description>Exploring the mechanics behind chain-of-thought prompting and its practical applications.</description>
+      <title>The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Model</title>
+      <link>http://localhost:1313/research/the-illusion-of-thinking-understanding-the-strengths-and-limitations-of-reasoning-model/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/the-illusion-of-thinking-understanding-the-strengths-and-limitations-of-reasoning-model/</guid>
+      <description>the &amp;ldquo;illusion&amp;rdquo; of Large Reasoning Models (LRMs), arguing that their step-by-step logic often mimics learned linguistic patterns rather than performing true, grounded reasoning..</description>
     </item>
     <item>
       <title>About</title>
