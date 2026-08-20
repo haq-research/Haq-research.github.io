@@ -7,8 +7,6 @@ summary: "A practical breakdown of where agentic and multi agent systems actuall
 
 I've been spending a lot of time lately looking at where agentic and multi agent systems actually fail once they hit production, not in a demo. The pattern that keeps showing up is that individual tool calls succeed, individual agents behave correctly in isolation, and the system still produces a wrong result. Below is a working taxonomy of the failure classes I keep running into, what usually causes each one, and what actually mitigates it.
 
----
-
 **1. Planning and reasoning failures**
 
 The agent builds the wrong plan for the task. Every tool call can succeed on its own, but the plan itself skips a necessary step, for example skipping eligibility and exclusion filtering before ranking clinical trials.
@@ -20,8 +18,6 @@ How to fix it:
 - Encode domain constraints as structured checklists or schemas the planner has to satisfy, instead of trusting the model to recall them from a prompt.
 - Add a plan critique step, a second pass by the same model or a different one, that checks the plan against the stated goal before execution begins.
 - Cap planning depth and revisions so an incomplete plan doesn't get locked in early.
-
----
 
 **2. Tool selection failures**
 
@@ -35,8 +31,6 @@ How to fix it:
 - Tier tools explicitly by side effect class, so selection logic and any human review treats `search` and `delete_record` differently by default.
 - Use tool call logging and evals to catch recurring wrong tool patterns, and fix the root cause through better descriptions or removing redundant tools, not by prompting harder.
 
----
-
 **3. Tool and API infrastructure failures**
 
 The agent's logic is correct, but the surrounding infrastructure fails: timeouts, rate limits, auth failures, schema mismatches, stale or partial responses, dependency outages. Agents don't naturally know how to interpret or recover from these signals.
@@ -46,8 +40,6 @@ How to fix it, using the error handling patterns that work for production agents
 - Use bounded retries with exponential backoff, and treat this as a separate mechanism from circuit breakers. Retries handle transient failures. Circuit breakers handle systemic or runaway ones.
 - Build in explicit fallback strategies, a secondary tool, a cached or stale data flag surfaced to the agent, or graceful degradation to "I don't have current data," instead of retrying silently forever.
 - Log a full audit trail on every breaker trip: what triggered it, what actions were taken, how many steps had elapsed, and cumulative cost. You need this for postmortems, not just for prevention.
-
----
 
 **4. State and memory failures**
 
@@ -61,8 +53,6 @@ How to fix it:
 - Add state consistency checks at agent handoff boundaries, a lightweight validator that flags contradictions before a downstream agent acts on them.
 - Scope memory explicitly by task, session, or long term, so agents don't accidentally inherit memory that belongs to a different task or user.
 
----
-
 **5. Context window failures**
 
 Context keeps accumulating: the user request, system instructions, prior reasoning, tool results, retrieved documents, other agents' outputs, until it becomes too large, noisy, or poorly prioritized. The information the agent needs might technically be in there, but it's effectively unusable because the agent can't attend to the right part of a bloated context.
@@ -74,8 +64,6 @@ How to fix it:
 - Move working memory outside the context window, into an external memory store or scratchpad the agent queries on demand, instead of keeping everything inline.
 - Monitor context utilization and actively summarize, compress, or evict low relevance content before hitting a threshold, commonly recommended around eighty percent of window capacity, instead of waiting for hard truncation.
 - Prioritize context by relevance to the current step, not just by recency.
-
----
 
 **6. Multi agent coordination failures**
 
@@ -89,8 +77,6 @@ How to fix it:
 - Add a supervisor or validator role whose only job is checking handoff contracts, separate from the agents doing the actual work.
 - Trace every handoff, covered more in the observability section below, so coordination failures are diagnosable after the fact, not just theoretically preventable.
 
----
-
 **7. Agent loop failures**
 
 The plan, act, observe, reason loop repeats the same action without making progress, for example searching and getting an insufficient result four times in a row, which drives up token use, latency, API cost, and tool saturation.
@@ -101,8 +87,6 @@ How to fix it:
 - Set iteration budgets as a distinct control from token budgets, capping the number of tool calls or reasoning steps, not just total tokens. A commonly cited ceiling is around fifteen tool calls per task.
 - Add repetition detection that halts after two identical or near identical consecutive calls with no new information.
 - Share circuit breakers across the whole run rather than per tool, so a loop that alternates between two tools still gets caught.
-
----
 
 **8. Goal drift**
 
@@ -115,8 +99,6 @@ How to fix it:
 - Add a final goal conformance check before returning a result. Does the output actually satisfy the original stated objective, checked programmatically or by a separate verifier, not by the same agent that drifted.
 - Prefer shorter, more frequently checkpointed sub tasks over long autonomous runs, since drift compounds with iteration count.
 
----
-
 **9. Hallucination inside the workflow**
 
 A hallucinated fact from Agent A gets treated as authoritative by Agent B, reasoned over by Agent C, and baked into Agent D's final answer. The original hallucination might not even appear in the final trace, but its effect propagates through the whole system.
@@ -128,8 +110,6 @@ How to fix it:
 - Require verification of load bearing claims before they cross an agent boundary, not just at the very end of the pipeline.
 - Run faithfulness and hallucination detection evaluators on intermediate outputs, not only on final answers, so propagation gets caught early.
 
----
-
 **10. Retrieval failures**
 
 For RAG systems specifically, the failure happens before the LLM even reasons: wrong documents retrieved, a relevant document ranked too low, a stale index, bad chunking, metadata filter misses, embedding mismatch, semantic ambiguity, or retrieval returning too much irrelevant context. The agent then reasons correctly over incorrect evidence.
@@ -140,8 +120,6 @@ How to fix it:
 - Evaluate retrieval independently of generation, precision and recall on retrieved chunks, since a correct final answer can hide a retrieval near miss, and a wrong answer can hide correct but underused retrieval.
 - Keep indices fresh with explicit staleness monitoring and re indexing triggers, instead of assuming static correctness.
 - Tune chunking and metadata filtering per document type rather than using one global strategy, and cap returned context to what's actually relevant.
-
----
 
 **11. Permission and authorization failures**
 
@@ -155,8 +133,6 @@ How to fix it, following the 2026 production playbook:
 - Prefer user context delegation, OAuth style, scoped to the requesting user, over shared service accounts, so effective authority is the intersection of agent and user permissions, never their union.
 - Gate destructive actions like `delete_file`, `send_email`, `run_code`, `update_database`, or `modify_iam_policy` behind explicit, out of band human approval with a timeout, calibrated so reviewers aren't overwhelmed into rubber stamping.
 
----
-
 **12. Adversarial input and prompt injection**
 
 This is different from permission failures. The agent stays within its legitimate permissions, but untrusted content, a retrieved document, a tool result, an issue comment, a webpage, hijacks which legitimate action it takes. It's a control flow integrity problem, not an authorization problem, and it's behind several of the more notable 2025 and 2026 incidents, including the Snowflake Cortex sandbox bypass and the GitHub Agentic Workflows exfiltration.
@@ -169,8 +145,6 @@ How to fix it:
 - Treat any agent generated code as untrusted. Never `eval()` it directly.
 - This layer compounds with permissions above. Even a successful injection is contained if the underlying permissions and human approval gates are in place. Least privilege is the single highest leverage mitigation for both.
 
----
-
 **13. Observability failures**
 
 Traditional request, service, response logging isn't enough for agentic systems, where a single request can fan out into dozens of planner, agent, tool, and retriever hops. Logging only `request_id`, `response`, and `latency` leaves you unable to explain why the agent made a decision.
@@ -182,8 +156,6 @@ What production grade agent observability actually needs:
 - A few representative tools as of 2026: MLflow, open source and OpenTelemetry native, with sixty plus framework integrations and built in LLM judge evaluation and cost tracking through its AI Gateway. Langfuse, for high throughput tracing on a ClickHouse backend with cost analytics, though self hosting needs five plus services. LangSmith, with deep native LangChain and LangGraph visualization, strong for teams already in that ecosystem, but SaaS only outside enterprise tiers. Arize Phoenix, built on the OpenInference standard with forty plus framework support and fifty plus research backed eval metrics including faithfulness, toxicity, and hallucination, with strong RAG retrieval visualization. Braintrust, with near zero setup automatic logging through an LLM proxy, twenty five plus built in scorers, and natural language custom scorers.
 - Pick based on what you're actually optimizing for: fully open source and self hostable is MLflow, deepest LangGraph integration is LangSmith, RAG and eval depth is Phoenix, and minimal setup friction is Braintrust. Don't pick on brand recognition alone.
 
----
-
 **14. Cost and latency failures**
 
 Agentic architecture multiplies model calls. A single user request can become nine or more LLM calls across planner, research, validation, reasoning, and response stages, and a looping agent can push that to thirty or fifty calls. Cost and latency stop being request level properties and become workflow level properties.
@@ -194,8 +166,6 @@ How to fix it:
 - Set per task budget caps and cost velocity circuit breakers, for example tripping if spend exceeds a defined dollar per hour rate, independent of step count caps. This catches fast loops before a total budget cap would.
 - Tier models: cheaper, smaller models for routing and low stakes sub tasks, and reserve expensive models for the steps that actually need them.
 - Attribute cost by team or workflow so blowups are traceable to a specific agent or task type, not just a total bill spike.
-
----
 
 **15. Non determinism**
 
@@ -209,8 +179,6 @@ How to fix it:
 - Property based and regression evals, checking whether the output still satisfies invariants rather than whether it matches a golden string, hold up better against legitimate non determinism than exact match tests.
 - Track variance across runs as its own observability signal, so an increase in output divergence is itself an alertable event.
 
----
-
 **16. Evaluation failures**
 
 This might be the biggest architectural gap of all. An agent system can show API healthy, agent running, no exceptions, latency acceptable, and still return a wrong answer. Operational correctness does not imply semantic correctness.
@@ -222,8 +190,6 @@ How to fix it:
 - Use LLM as judge and research backed metrics, faithfulness, hallucination rate, retrieval relevancy, task completion rate, continuously in production, not just in pre launch test suites. Most of the observability platforms mentioned above build this in.
 - Treat business outcome evaluation, did this actually solve the user's problem, as the top level metric that every lower layer eval is a proxy for. A system can pass every lower layer check and still fail here.
 - Close the loop by routing production evaluation failures back into the trace and observability data, so root cause is diagnosable, not just detectable.
-
----
 
 **Summary table**
 
@@ -245,8 +211,6 @@ How to fix it:
 | 14 | Cost and latency | Per workflow budget caps plus cost velocity breakers plus model tiering |
 | 15 | Non determinism | Statistical and property based evals, not exact match, tuned temperature per step |
 | 16 | Evaluation | Multi layer continuous eval across model, workflow, and business outcome |
-
----
 
 **The bottom line**
 
