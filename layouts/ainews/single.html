@@ -1,0 +1,114 @@
+{{- define "main" }}
+{{- $items := .Params.items }}
+{{- $projectIdeas := .Params.project_ideas }}
+
+{{- $topics := slice }}
+{{- range $items }}{{ $topics = $topics | append .topic }}{{ end }}
+{{- $topics = $topics | uniq }}
+
+{{- $subtopics := slice }}
+{{- range $items }}{{ range .subtopics }}{{ $subtopics = $subtopics | append . }}{{ end }}{{ end }}
+{{- $subtopics = $subtopics | uniq }}
+
+{{- $glanceItems := slice }}
+{{- range $items }}
+  {{- if .glance_summary }}{{ $glanceItems = $glanceItems | append . }}{{ end }}
+{{- end }}
+
+{{- $wordCount := 0 }}
+{{- range $items }}
+  {{- $wordCount = add $wordCount (len (split (.title | plainify) " ")) }}
+  {{- $wordCount = add $wordCount (len (split (.why | plainify) " ")) }}
+{{- end }}
+{{- range $projectIdeas }}
+  {{- $wordCount = add $wordCount (len (split (.title | plainify) " ")) }}
+  {{- $wordCount = add $wordCount (len (split (.body | plainify) " ")) }}
+{{- end }}
+{{- $readMin := div (add $wordCount 100) 200 }}
+{{- if lt $readMin 1 }}{{ $readMin = 1 }}{{ end }}
+
+<article class="ainews-page">
+  <div class="ainews-masthead">
+    <div class="ainews-title-group">
+      <span class="ainews-title">{{ .Title }}</span>
+      <span class="ainews-readtime">~{{ $readMin }} min read</span>
+    </div>
+  </div>
+
+  {{- with .Params.note }}
+  <p class="ainews-note">{{ . }}</p>
+  {{- end }}
+
+  <div class="ainews-pillbar">
+    <a class="ainews-pill active" href="#glance">All <span class="ainews-n">{{ len $items }}</span></a>
+    {{- range $topics }}
+    <a class="ainews-pill" href="#{{ . | anchorize }}">{{ . }} <span class="ainews-n">{{ len (where $items "topic" .) }}</span><span class="ainews-go"> ›</span></a>
+    {{- end }}
+    {{- if $projectIdeas }}
+    <a class="ainews-pill" href="#project-ideas">Project Ideas <span class="ainews-n">{{ len $projectIdeas }}</span><span class="ainews-go"> ›</span></a>
+    {{- end }}
+  </div>
+  {{- if $subtopics }}
+  <div class="ainews-subpillbar">
+    {{- range $subtopics }}
+    <span class="ainews-subpill">{{ . }}</span>
+    {{- end }}
+  </div>
+  {{- end }}
+
+  {{- if $glanceItems }}
+  <div class="ainews-glance" id="glance">
+    <div class="ainews-eyebrow">This week at a glance</div>
+    <ol>
+      {{- range $index, $it := $glanceItems }}
+      <li>
+        <span class="ainews-g-num">{{ add $index 1 }}.</span><a class="ainews-g-title" href="{{ $it.url }}">{{ $it.title }}</a>
+        <p class="ainews-g-sum">{{ $it.glance_summary }}</p>
+      </li>
+      {{- end }}
+    </ol>
+  </div>
+  {{- end }}
+
+  {{- range $topics }}
+  {{- $topicItems := where $items "topic" . }}
+  <div class="ainews-topic-h" id="{{ . | anchorize }}">
+    <span class="ainews-topic-name">{{ . }}</span><span class="ainews-topic-count">{{ len $topicItems }} item{{ if ne (len $topicItems) 1 }}s{{ end }}</span>
+  </div>
+  <div class="ainews-tablewrap">
+    <table class="ainews-table">
+      <thead><tr><th>Title</th><th>Source</th><th>Date</th></tr></thead>
+      <tbody>
+        {{- range $topicItems }}
+        {{- $item := . }}
+        <tr>
+          <td class="ainews-t-title">
+            <a href="{{ $item.url }}">{{ $item.title }}</a>
+            <span class="ainews-t-why">{{ $item.why }}</span>
+            {{- if $item.subtopics }}
+            <span class="ainews-t-subchips">
+              {{- range $item.subtopics }}<span class="ainews-subchip">{{ . }}</span>{{ end }}
+            </span>
+            {{- end }}
+          </td>
+          <td class="ainews-t-src">{{ with $item.source_url }}<a href="{{ . }}">{{ $item.source }}</a>{{ else }}{{ $item.source }}{{ end }}</td>
+          <td class="ainews-t-date">{{ $item.date_display }}</td>
+        </tr>
+        {{- end }}
+      </tbody>
+    </table>
+  </div>
+  {{- end }}
+
+  {{- if $projectIdeas }}
+  <div class="ainews-project-box" id="project-ideas">
+    <div class="ainews-eyebrow">Project ideas from this pull</div>
+    {{- range $projectIdeas }}
+    <div class="ainews-project-item">
+      <b>{{ .title }}.</b> {{ .body }}
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+</article>
+{{- end }}

@@ -1,0 +1,4 @@
+# Local only, never tracked
+ai_code/
+CLAUDE.md
+.DS_Store
