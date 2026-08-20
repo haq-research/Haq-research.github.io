@@ -1,1 +1,4 @@
-<link rel="stylesheet" href="{{ "css/custom.css" | absURL }}">
+{{- with resources.Get "css/custom.css" }}
+{{- $css := . | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- end }}
