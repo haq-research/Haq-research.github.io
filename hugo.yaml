@@ -65,4 +65,4 @@ outputs:
 
 # Permalinks
 permalinks:
-  posts: "/blogs/:title/"
+  posts: "/blogs/:slug/"
