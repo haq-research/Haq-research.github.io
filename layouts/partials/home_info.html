@@ -1,0 +1,49 @@
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1 class="typing-wrap" aria-live="polite">
+            <span class="typing-text" data-text="{{ .Title | plainify }}">{{ .Title }}</span>
+            <span class="typing-cursor" aria-hidden="true">|</span>
+        </h1>
+    </header>
+    <div class="entry-content">
+        {{ .Content | markdownify }}
+    </div>
+    <footer class="entry-footer">
+        {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
+    </footer>
+</article>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const typingText = document.querySelector('.typing-text');
+    const typingCursor = document.querySelector('.typing-cursor');
+
+    if (!typingText || !typingCursor) return;
+
+    const fullText = typingText.dataset.text || typingText.textContent || '';
+    typingText.textContent = '';
+
+    let index = 0;
+    const typingSpeed = 90;
+
+    function typeCharacter() {
+      if (index <= fullText.length) {
+        typingText.textContent = fullText.slice(0, index);
+        index += 1;
+        setTimeout(typeCharacter, typingSpeed);
+      } else {
+        typingCursor.classList.add('typing-cursor-finished');
+      }
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      typingText.textContent = fullText;
+      typingCursor.classList.add('typing-cursor-finished');
+      return;
+    }
+
+    typeCharacter();
+  });
+</script>
+{{- end -}}

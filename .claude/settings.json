@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(python3 -c ' *)",
+      "Bash(hugo --destination /tmp/hugo-ainews-check)",
+      "Bash(hugo --destination /tmp/hugo-ainews-check2 --logLevel debug)",
+      "Bash(hugo --destination /tmp/hugo-ainews-check3 --buildFuture)",
+      "Bash(hugo --destination /tmp/hugo-ainews-check4)",
+      "Bash(hugo --destination /tmp/hugo-ainews-check5)"
+    ]
+  }
+}
