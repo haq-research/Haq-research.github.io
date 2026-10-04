@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380" role="img" aria-labelledby="t1 d1">
+<title id="t1">One iteration of a typical agent loop</title>
+<desc id="d1">Plan, route, execute, judge and continue. Four of the five steps are LLM calls; only planning is open ended reasoning. Routing, judging and continuing are decisions over a small known option set.</desc>
+<style>
+text{font-family:'Nunito Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;fill:#1f2328}
+.h{font-size:17px;font-weight:700}.s{font-size:13px;fill:#57606a}.k{font-size:12px;font-weight:700;letter-spacing:.6px}
+.cap{font-size:14px;fill:#57606a}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker></defs>
+<rect x="1" y="1" width="958" height="378" rx="14" fill="#fbfbfb" stroke="#e1e4e8"/>
+<text x="32" y="44" class="h" style="font-size:19px">One iteration of a typical agent loop</text>
+<text x="32" y="68" class="cap">Every solid box is an LLM call. Only one of them needs open ended reasoning.</text>
+
+<!-- boxes: x = 32, 214, 396, 578, 760 ; w=168 -->
+<g>
+<rect x="32" y="110" width="168" height="150" rx="10" fill="#eef2f6" stroke="#475569" stroke-width="1.5"/>
+<text x="48" y="136" class="k" fill="#475569" style="fill:#475569">REASONING</text>
+<text x="48" y="164" class="h">Plan</text>
+<text x="48" y="190" class="s">"What should happen</text>
+<text x="48" y="208" class="s">to reach the goal?"</text>
+<text x="48" y="240" class="s">Open ended output</text>
+</g>
+<g>
+<rect x="214" y="110" width="168" height="150" rx="10" fill="#fdeced" stroke="#d71921" stroke-width="1.5"/>
+<text x="230" y="136" class="k" style="fill:#d71921">DECISION</text>
+<text x="230" y="164" class="h">Route</text>
+<text x="230" y="190" class="s">"Which agent or tool</text>
+<text x="230" y="208" class="s">runs next?"</text>
+<text x="230" y="240" class="s">1 of N known options</text>
+</g>
+<g>
+<rect x="396" y="110" width="168" height="150" rx="10" fill="#ffffff" stroke="#8c959f" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="412" y="136" class="k" style="fill:#57606a">EXECUTION</text>
+<text x="412" y="164" class="h">Act</text>
+<text x="412" y="190" class="s">Tool, API, retrieval,</text>
+<text x="412" y="208" class="s">sub agent</text>
+<text x="412" y="240" class="s">Not an LLM call</text>
+</g>
+<g>
+<rect x="578" y="110" width="168" height="150" rx="10" fill="#fdeced" stroke="#d71921" stroke-width="1.5"/>
+<text x="594" y="136" class="k" style="fill:#d71921">DECISION</text>
+<text x="594" y="164" class="h">Judge</text>
+<text x="594" y="190" class="s">"Did that step</text>
+<text x="594" y="208" class="s">succeed?"</text>
+<text x="594" y="240" class="s">Yes or no</text>
+</g>
+<g>
+<rect x="760" y="110" width="168" height="150" rx="10" fill="#fdeced" stroke="#d71921" stroke-width="1.5"/>
+<text x="776" y="136" class="k" style="fill:#d71921">DECISION</text>
+<text x="776" y="164" class="h">Continue?</text>
+<text x="776" y="190" class="s">Continue, retry,</text>
+<text x="776" y="208" class="s">switch, or stop</text>
+<text x="776" y="240" class="s">1 of 4 options</text>
+</g>
+<g stroke="#8c959f" stroke-width="1.6" fill="none">
+<line x1="200" y1="185" x2="211" y2="185" marker-end="url(#a)"/>
+<line x1="382" y1="185" x2="393" y2="185" marker-end="url(#a)"/>
+<line x1="564" y1="185" x2="575" y2="185" marker-end="url(#a)"/>
+<line x1="746" y1="185" x2="757" y2="185" marker-end="url(#a)"/>
+<path d="M844,260 L844,300 L116,300 L116,265" marker-end="url(#a)"/>
+</g>
+<text x="480" y="294" text-anchor="middle" class="s">next iteration</text>
+<text x="32" y="348" class="cap">4 LLM calls per iteration: 1 reasoning, 3 decisions. Over a 6 iteration task that is 24 calls, 18 of them decisions.</text>
+</svg>
